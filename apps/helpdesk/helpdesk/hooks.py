@@ -55,11 +55,15 @@ scheduler_events = {
 
 
 website_route_rules = [
-    {
-        "from_route": "/helpdesk/<path:app_path>",
-        "to_route": "helpdesk",
-    },
-]
+      {
+          "from_route": "/helpdesk",
+          "to_route": "helpdesk",
+      },
+      {
+          "from_route": "/helpdesk/<path:app_path>",
+          "to_route": "helpdesk",
+      },
+  ]
 
 user_invitation = {
     "allowed_roles": {

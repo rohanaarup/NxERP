@@ -25,6 +25,14 @@ app_include_css = ["/assets/nxerp/css/nxerp-desk-theme.css"]
 #   bench --site <site> execute nxerp.branding.apply_branding
 after_install = "nxerp.branding.apply_branding"
 
+# Website route rules: /helpdesk renders the Helpdesk page controller
+website_route_rules = [
+    {
+        "from_route": "/helpdesk",
+        "to_route": "nxerp/helpdesk",
+    },
+]
+
 # The /login page is overridden by nxerp/www/login.html (+ login.py).
 # Frappe serves the www page of the app installed last, so nxerp must be
 # installed after frappe (and after helpdesk) - the normal order.

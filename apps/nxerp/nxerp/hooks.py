@@ -26,7 +26,7 @@ app_include_css = ["/assets/nxerp/css/nxerp-desk-theme.css"]
 after_install = "nxerp.branding.apply_branding"
 
 # Website route rules: /helpdesk renders the Helpdesk page controller;
-# /desk redirects to the Frappe Desk (/app)
+# /desk redirects to the Frappe Desk (/app); /helpdesk/desk renders the Helpdesk agent desk
 website_route_rules = [
     {
         "from_route": "/helpdesk",
@@ -35,6 +35,10 @@ website_route_rules = [
     {
         "from_route": "/desk",
         "to_route": "/app",
+    },
+    {
+        "from_route": "/helpdesk/desk",
+        "to_route": "nxerp/helpdesk_desk",
     },
 ]
 

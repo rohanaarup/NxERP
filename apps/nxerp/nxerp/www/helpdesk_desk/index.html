@@ -1,0 +1,21 @@
+{% extends "templates/web.html" %}
+
+{% block page_title %}Helpdesk Desk - {{ context.site_name }}{% endblock %}
+
+{% block hero %}
+<div class="text-center py-4">
+    <h1>{{ _("Helpdesk Desk") }}</h1>
+    <p>{{ _("NXERP Helpdesk agent interface") }}</p>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h3>{{ _("Helpdesk Agent Desk") }}</h3>
+        <p>{{ _("Manage tickets, teams, assignments, and SLAs from here.") }}</p>
+        <a href="/app" class="btn btn-primary">{{ _("Open Frappe Desk") }}</a>
+        <a href="/helpdesk" class="btn btn-secondary">{{ _("Back to Portal") }}</a>
+    </div>
+</div>
+{% endblock %}

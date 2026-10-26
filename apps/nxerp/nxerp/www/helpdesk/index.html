@@ -1,20 +1,10 @@
-{% extends "templates/web.html" %}
-
-{% block page_title %}Helpdesk - {{ context.site_name }}{% endblock %}
-
-{% block hero %}
-<div class="text-center py-4">
-    <h1>{{ _("Helpdesk") }}</h1>
-    <p>{{ _("Welcome to NXERP Helpdesk") }}</p>
-</div>
-{% endblock %}
-
-{% block content %}
-<div class="card">
-    <div class="card-body">
-        <h3>{{ _("Helpdesk Portal") }}</h3>
-        <p>{{ _("Access your tickets, teams, and knowledge base from the Desk.") }}</p>
-        <a href="/app" class="btn btn-primary">{{ _("Open Desk") }}</a>
-    </div>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="0; url=/app">
+    <title>Redirecting to Desk...</title>
+</head>
+<body>
+    <p>Redirecting to <a href="/app">NXERP Desk</a>...</p>
+</body>
+</html>

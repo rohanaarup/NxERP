@@ -146,4 +146,14 @@ Toolchain available locally: Python 3.14.3, Node v24.18.0, npm 11.16.0, yarn 1.2
 
 ## Current phase / next action
 
-**Phase 0 complete.** Next: attempt `git push` of the current `codex/nxerp-integration` branch (or `main`) to `origin` to verify write access; if access is denied, complete local validation and report the precise remaining action (admin grant of push / branch-protection config). Then run CI on Linux and publish.
+**Phases 0-9 complete locally.** All feasible checks executed (see verified PASS list above).
+
+### Push result (Phase 10) — BLOCKED by permissions
+`git push origin main` → `remote: Permission to Sria-Infotech-Pvt-Ltd/NxERP.git denied to rohanaarup.` HTTP 403. The authenticated identity `rohanaarup` has **no write access** to `Sria-Infotech-Pvt-Ltd/NxERP.git`. The push did NOT succeed and was not forced. Local `main` is at `37531b7` (ahead of `origin/main` = `c80531a` "Initial commit").
+
+### Precise remaining action (requires human intervention)
+1. An organization administrator must grant write access to `Sria-Infotech-Pvt-Ltd/NxERP.git` for an authenticated identity (e.g. add `rohanaarup` to the repo with write/triage, or use a deploy key / bot token with `contents: write`).
+2. After access is granted, run: `git push origin main` from `nxerp-integration` (branch `main`, commit `37531b7`). This is a fast-forward over `origin/main` (`c80531a`); no force-push needed.
+3. Configure branch protection on `main` per `docs/branching.md` (requires admin/repo write).
+4. Run CI on GitHub (Linux runner) to execute `yarn build` + server tests + security scans (not runnable on this Windows session).
+5. Validate on a real Frappe Bench (Frappe v16.53.0 + ERPNext v16.52.1 + telephony + helpdesk + nxerp).
